@@ -161,6 +161,35 @@
   }
 }
 
+/* Set the z-index of the menu to be higher than the button */
+#kategori-menu {
+  z-index: 999;
+}
+
+#kategori-menu {
+  background-color: white;
+}
+
+/* Position the menu below the button */
+#kategori-menu li {
+  margin-top: 0.5rem;
+}
+
+/* Style the submenu items */
+#kategori-menu li a {
+  display: block;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151;
+  white-space: nowrap;
+}
+
+#kategori-menu li a:hover {
+  color: #4b5563;
+  background-color: #f4f4f4;
+}
+
 .tagline {
   background-color: #f6f6f6;
 }
@@ -242,28 +271,39 @@
 </head>
 <body class="bg-gray-100">
   <nav class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex justify-between h-16">
-        <div class="flex">
-          <a href="#" class="flex-shrink-0 flex items-center">
-            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-            <span class="font-semibold text-xl text-gray-800 ml-2">nanti dipikirin</span>
-          </a>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16">
+      <div class="flex">
+        <a href="#" class="flex-shrink-0 flex items-center">
+          <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+          <span class="font-semibold text-xl text-gray-800 ml-2">nanti dipikirin</span>
+        </a>
+      </div>
+      <div class="hidden md:flex md:items-center md:ml-6">
+        <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+        <div class="relative">
+          <button id="kategori-button" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kategori</button>
+          <ul id="kategori-menu" class="hidden absolute z-10">
+            <li><a href="#">Submenu 1</a></li>
+            <li><a href="#">Submenu 2</a></li>
+            <li><a href="#">Submenu 3</a></li>
+            <li><a href="#">Submenu 4</a></li>
+            <li><a href="#">Submenu 5</a></li>
+            <li><a href="#">Submenu 6</a></li>
+          </ul>
         </div>
-        <div class="hidden md:flex md:items-center md:ml-6">
-          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kategori</a>
-          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
-        </div>
-        <div class="-mr-2 flex md:hidden">
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
-            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+        <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
+      </div>
+      <div class="-mr-2 flex md:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
+
     <div class="hidden md:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
@@ -324,6 +364,26 @@ function showMenu() {
 /* Tambahkan event listener untuk tombol hamburger dan ukuran layar */
 mainMenuButton.addEventListener('click', toggleMenu);
 window.addEventListener('resize', showMenu);
+
+// Get the button and menu elements
+const kategoriButton = document.querySelector('#kategori-button');
+const kategoriMenu = document.querySelector('#kategori-menu');
+
+// Add a click event listener to the button
+kategoriButton.addEventListener('click', function() {
+// Toggle the "hidden" class on the menu
+kategoriMenu.classList.toggle('hidden');
+});
+
+// Add a click event listener to each submenu
+const submenus = document.querySelectorAll('#kategori-menu a');
+submenus.forEach(function(submenu) {
+submenu.addEventListener('click', function() {
+// Hide the menu when a submenu is clicked
+kategoriMenu.classList.add('hidden');
+});
+});
+
   </script>
 </body>
 </html>
