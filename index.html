@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KATALOG</title>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.17/dist/tailwind.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+	
+  <style>
+      /* Warna background navbar */
+.bg-white {
+  background-color: #fff;
+}
+
+/* Shadow pada navbar */
+.shadow {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+/* Padding pada navbar */
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Warna teks pada navbar */
+.text-gray-800 {
+  color: #2d3748;
+}
+
+/* Margin pada item navbar */
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+/* Warna teks dan latar pada item navbar saat dihover */
+.text-gray-600:hover, .text-gray-600:focus {
+  color: #4a5568;
+}
+.hover\\:bg-gray-100:hover, .hover\\:bg-gray-100:focus {
+  background-color: #f7fafc;
+}
+
+/* Tinggi navbar */
+.h-16 {
+  height: 4rem;
+}
+
+/* Flex container */
+.flex {
+  display: flex;
+}
+
+/* Flex align items */
+.items-center {
+  align-items: center;
+}
+
+/* Flex justify content */
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Flex shrink */
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* Lebar dan tinggi gambar */
+.h-8 {
+  height: 2rem;
+}
+.w-8 {
+  width: 2rem;
+}
+
+/* Font weight dan ukuran font */
+.font-semibold {
+  font-weight: 600;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+
+/* Margin kanan item navbar */
+.md\\:ml-6 {
+  margin-left: 1.5rem;
+}
+
+/* Teks dan latar pada tombol menu hamburger */
+.inline-flex {
+  display: inline-flex;
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.rounded-md {
+  border-radius: 0.375rem;
+}
+.text-gray-400 {
+  color: #cbd5e0;
+}
+.hover\\:text-gray-500:hover, .hover\\:text-gray-500:focus {
+  color: #a0aec0;
+}
+.hover\\:bg-gray-100:hover, .hover\\:bg-gray-100:focus {
+  background-color: #f7fafc;
+}
+.focus\\:outline-none:focus {
+  outline: none;
+}
+.focus\\:bg-gray-100:focus {
+  background-color: #f7fafc;
+}
+.focus\\:text-gray-500:focus {
+  color: #a0aec0;
+}
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+  transition-duration: 150ms;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Lebar dan tinggi ikon menu hamburger */
+.h-6 {
+  height: 1.5rem;
+}
+.w-6 {
+  width: 1.5rem;
+}
+
+/* Lebar dan tinggi menu mobile */
+.sm\\:px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.pt-2 {
+  padding-top: 0.5rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+.text-base {
+  font-size: 1rem;
+}
+
+/* gambar pada tampilan desktop */
+.tagline {
+  background-image: url('poto/bg.png');
+  background-size: cover;
+}
+
+/* gambar pada tampilan hp */
+@media (max-width: 767px) {
+  .tagline {
+    background-image: url('poto/bg.png');
+    background-size: cover;
+  }
+}
+
+.tagline {
+  background-color: #f6f6f6;
+}
+
+.tagline h2 {
+  color: #333;
+}
+
+.tagline p {
+  color: #666;
+}
+
+.tagline a {
+  background-color: #4b5563;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.product h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product button {
+  background-color: #4a5568;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.product button:hover {
+  background-color: #2d3748;
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-color: gray; /* warna border menjadi abu-abu */
+  background-color: #f2f2f2; /* warna background menjadi abu-abu muda */
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <a href="#" class="flex-shrink-0 flex items-center">
+            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+            <span class="font-semibold text-xl text-gray-800 ml-2">nanti dipikirin</span>
+          </a>
+        </div>
+        <div class="hidden md:flex md:items-center md:ml-6">
+          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kategori</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 sm:px-3">
+        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kategori</a>
+        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+<section class="tagline py-10">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-5">masih dipikirin</h2>
+    <p class="text-gray-500 leading-relaxed">masih dipikirin</p>
+    <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded-full mt-5 inline-block">Tombol CTA</a>
+  </div>
+</section>
+
+<section class="products">
+  <div class="product">
+    <img src="poto/barang.jpg" alt="Product 1">
+    <h3>baju anak</h3>
+    <p>Ukuran L.</p>
+    <button>Selengkapnya</button>
+  </div>
+  <div class="product">
+    <img src="poto/barang.jpg" alt="Product 2">
+    <h3>baju anak</h3>
+    <p>Ukuran M.</p>
+    <button>Selengkapnya</button>
+  </div>
+  <div class="product">
+    <img src="poto/barang.jpg" alt="Product 3">
+    <h3>baju anak</h3>
+    <p>Ukuran S.</p>
+    <button>Selengkapnya</button>
+  </div>
+  <div class="product">
+    <img src="poto/barang.jpg" alt="Product 4">
+    <h3>baju anak</h3>
+    <p>Ukuran XL.</p>
+    <button>Selengkapnya</button>
+  </div>
+</section>
+
+  <script>
+const mainMenuButton = document.getElementById('main-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+/* Saat tombol hamburger ditekan, tambahkan class "hidden" pada mobile menu untuk menyembunyikannya */
+function toggleMenu() {
+  mobileMenu.classList.toggle('hidden');
+}
+/* Saat ukuran layar lebih besar dari 768px, hilangkan class "hidden" dari mobile menu */
+function showMenu() {
+  if (window.innerWidth > 768 && mobileMenu.classList.contains('hidden')) {
+    mobileMenu.classList.remove('hidden');
+  }
+}
+/* Tambahkan event listener untuk tombol hamburger dan ukuran layar */
+mainMenuButton.addEventListener('click', toggleMenu);
+window.addEventListener('resize', showMenu);
+  </script>
+</body>
+</html>
