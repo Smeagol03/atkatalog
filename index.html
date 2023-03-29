@@ -166,33 +166,45 @@
   }
 }
 
-/* Set the z-index of the menu to be higher than the button */
 #kategori-menu {
-  z-index: 999;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 10;
+  width: 200px;
 }
 
-#kategori-menu {
-  background-color: white;
-}
-
-/* Position the menu below the button */
 #kategori-menu li {
-  margin-top: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style the submenu items */
-#kategori-menu li a {
+#kategori-menu a {
   display: block;
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #374151;
-  white-space: nowrap;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #333;
 }
 
-#kategori-menu li a:hover {
-  color: #4b5563;
-  background-color: #f4f4f4;
+#kategori-menu a:hover {
+  background-color: #eee;
+}
+
+#kategori-button {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 10px;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Hide mobile menu by default */
@@ -425,7 +437,7 @@ p, span {
 
     <div class="hidden md:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 sm:px-3">
-        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="https://smeagol03.github.io/atkatalog/" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
         <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kategori</a>
         <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
       </div>
@@ -527,14 +539,13 @@ kategoriButton.addEventListener('click', function() {
 kategoriMenu.classList.toggle('hidden');
 });
 
-// Add a click event listener to each submenu
-const submenus = document.querySelectorAll('#kategori-menu a');
-submenus.forEach(function(submenu) {
-submenu.addEventListener('click', function() {
-// Hide the menu when a submenu is clicked
-kategoriMenu.classList.add('hidden');
+const kategoriButton = document.getElementById('kategori-button');
+const kategoriMenu = document.getElementById('kategori-menu');
+
+kategoriButton.addEventListener('click', function() {
+  kategoriMenu.classList.toggle('hidden');
 });
-});
+
 
   </script>
 </body>
