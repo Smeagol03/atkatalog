@@ -254,6 +254,62 @@
   }
 }
 
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right {
+  flex-basis: 30%;
+}
+
+.center {
+  flex-basis: 40%;
+}
+
+.left, .center, .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+span {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.left p {
+  text-align: left;
+}
+
+.left span {
+  text-align: justify;
+}
+.left {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.center p {
+  text-align: center;
+}
+
+.right p {
+  text-align: right;
+}
   </style>
 </head>
 <body class="bg-gray-100">
@@ -338,6 +394,25 @@
     <a href="https://tokopedia.link/3C99mnOiyyb"><button>Selengkapnya</button></a>
   </div>
 </section>
+
+<footer>
+  <div class="container">
+    <div class="left">
+      <p>Tentang Kami</p>
+      <span>Kami adalah situs affiliate yang bertujuan untuk membantu mempermudah pengguna dalam mencari produk yang tepat dan berkualitas. Kami berkomitmen untuk memberikan informasi dan terpercaya tentang produk-produk yang tersedia di pasar.</span>
+    </div>
+    <div class="center">
+      <p>Kontak</p>
+      <span>email : atabrani3@gmail.com</span>
+      <span>WA    : 087894721726</span>
+
+    </div>
+    <div class="right">
+      <p>Alamat</p>
+      <span>Rumbuk, Kecamatan Sakra, Kabupaten Lombok Timur</span>
+    </div>
+  </div>
+</footer>
 
   <script>
 const mainMenuButton = document.getElementById('main-menu-button');
