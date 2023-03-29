@@ -211,15 +211,14 @@
 }
 
 /* CSS untuk tampilan hp */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .products {
-    flex-direction: column;
-  }
-  
-  .product {
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
   }
 }
+
 
 .product {
   display: flex;
