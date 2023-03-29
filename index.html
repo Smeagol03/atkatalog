@@ -535,14 +535,14 @@ kategoriButton.addEventListener('click', function() {
 kategoriMenu.classList.toggle('hidden');
 });
 
-const kategoriButton = document.getElementById('kategori-button');
-const kategoriMenu = document.getElementById('kategori-menu');
-
-kategoriButton.addEventListener('click', function() {
-  kategoriMenu.classList.toggle('hidden');
+// Add a click event listener to each submenu
+const submenus = document.querySelectorAll('#kategori-menu a');
+submenus.forEach(function(submenu) {
+submenu.addEventListener('click', function() {
+// Hide the menu when a submenu is clicked
+kategoriMenu.classList.add('hidden');
 });
-
-
-  </script>
+});
+ </script>
 </body>
 </html>
