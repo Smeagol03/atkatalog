@@ -146,21 +146,16 @@
 .text-base {
   font-size: 1rem;
 }
-
-/* gambar pada tampilan desktop */
-.tagline {
-  background-image: url('poto/bg.png');
-  background-size: cover;
+.banner img {
+  width: 100%;
+  height: auto;
 }
-
-/* gambar pada tampilan hp */
-@media (max-width: 767px) {
-  .tagline {
-    background-image: url('poto/bg.png');
-    background-size: cover;
-  }
+.banner {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
-
 /* Set the z-index of the menu to be higher than the button */
 #kategori-menu {
   z-index: 999;
@@ -190,27 +185,12 @@
   background-color: #f4f4f4;
 }
 
-.tagline {
-  background-color: #f6f6f6;
-}
-
-.tagline h2 {
-  color: #333;
-}
-
-.tagline p {
-  color: #666;
-}
-
-.tagline a {
-  background-color: #4b5563;
-}
-
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin: 2rem 0;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .product {
@@ -313,12 +293,9 @@
     </div>
   </nav>
 
-<section class="tagline py-10">
-  <div class="container mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-5">"Mudah Ditemukan, Mudah Dipesan, dan Mudah Digunakan"</h2>
-    <p class="text-gray-500 leading-relaxed">masih dipikirin</p>
-  </div>
-</section>
+  <section class="banner">
+    <img src="poto/banner.png" alt="Banner" width="960" height="240">
+  </section>  
 
 <section class="products">
   <div class="product">
