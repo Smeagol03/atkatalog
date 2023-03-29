@@ -10,7 +10,7 @@
 
   <style>
       /* Warna background navbar */
-      .bg-white {
+.bg-white {
   background-color: #fff;
 }
 
@@ -166,33 +166,72 @@
   }
 }
 
-/* Set the z-index of the menu to be higher than the button */
 #kategori-menu {
-  z-index: 999;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 10;
+  width: 200px;
 }
 
-#kategori-menu {
-  background-color: white;
-}
-
-/* Position the menu below the button */
 #kategori-menu li {
-  margin-top: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style the submenu items */
-#kategori-menu li a {
+#kategori-menu a {
   display: block;
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #374151;
-  white-space: nowrap;
+  padding: 8px 10px;
+  text-decoration: none;
+  color: #333;
 }
 
-#kategori-menu li a:hover {
-  color: #4b5563;
-  background-color: #f4f4f4;
+#kategori-menu a:hover {
+  background-color: #eee;
+}
+
+#kategori-button {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 10px;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide mobile menu by default */
+#mobile-menu {
+  display: none;
+}
+
+/* Show mobile menu on small screens */
+@media (max-width: 767px) {
+  /* Display mobile menu as a block */
+  #mobile-menu {
+    display: block;
+  }
+
+  /* Style the links in the mobile menu */
+  #mobile-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  /* Style the active link in the mobile menu */
+  #mobile-menu a.active {
+    background-color: #333;
+    color: #fff;
+  }
 }
 
 .products {
@@ -210,15 +249,21 @@
   justify-content: space-between;
 }
 
-/* CSS untuk tampilan hp */
-@media only screen and (max-width: 767px) {
-  .products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-  }
+.product {
+  width: 45%;
+  margin-bottom: 30px;
 }
 
+/* CSS untuk tampilan hp */
+@media only screen and (max-width: 768px) {
+  .products {
+    flex-direction: column;
+  }
+  
+  .product {
+    width: 100%;
+  }
+}
 
 .product {
   display: flex;
@@ -390,24 +435,14 @@ p, span {
     </div>
   </div>
 
-  <div class="-mr-2 flex md:hidden">
-    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
-      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-</div>
-</div>
-
-<div class="hidden md:hidden" id="mobile-menu">
-  <div class="px-2 pt-2 pb-3 sm:px-3">
-    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
-    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kategori</a>
-    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
-  </div>
-</div>
-</nav>
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 sm:px-3">
+        <a href="https://smeagol03.github.io/atkatalog/" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kategori</a>
+        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+      </div>
+    </div>
+  </nav>
 
   <section class="banner">
     <img src="poto/banner.png" alt="Banner" width="960" height="240">
