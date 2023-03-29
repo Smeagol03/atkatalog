@@ -158,6 +158,14 @@
   margin-left: 40px;
   margin-right: 40px;
 }
+/* media query untuk layar dengan lebar maksimum 768px */
+@media screen and (max-width: 768px) {
+  .banner img {
+    max-width: 100%; /* mengatur lebar gambar menjadi maksimum 100% */
+    height: auto; /* mengatur tinggi gambar agar proporsional dengan lebar */
+  }
+}
+
 /* Set the z-index of the menu to be higher than the button */
 #kategori-menu {
   z-index: 999;
@@ -185,6 +193,33 @@
 #kategori-menu li a:hover {
   color: #4b5563;
   background-color: #f4f4f4;
+}
+
+/* Hide mobile menu by default */
+#mobile-menu {
+  display: none;
+}
+
+/* Show mobile menu on small screens */
+@media (max-width: 767px) {
+  /* Display mobile menu as a block */
+  #mobile-menu {
+    display: block;
+  }
+
+  /* Style the links in the mobile menu */
+  #mobile-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  /* Style the active link in the mobile menu */
+  #mobile-menu a.active {
+    background-color: #333;
+    color: #fff;
+  }
 }
 
 .products {
@@ -311,6 +346,43 @@ span {
 .right p {
   text-align: right;
 }
+
+/* Atur lebar maksimum pada elemen container */
+.container {
+  max-width: 100%;
+}
+
+/* Gunakan display flex dan flex-wrap pada elemen container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Atur lebar pada setiap elemen child */
+.left, .center, .right {
+  width: 100%;
+  margin-bottom: 20px; /* Atur jarak antar elemen child */
+}
+
+/* Atur lebar pada elemen child di ukuran layar yang lebih besar */
+@media only screen and (min-width: 768px) {
+  .left, .center, .right {
+    width: 33.33%;
+    margin-bottom: 0; /* Hapus jarak antar elemen child */
+  }
+}
+
+/* Atur teks menjadi rata kiri-kanan pada elemen span */
+.left span, .center span, .right span {
+  text-align: justify;
+}
+
+/* Atur margin dan padding pada elemen p dan span */
+p, span {
+  margin: 0;
+  padding: 0;
+}
+
   </style>
 </head>
 <body class="bg-gray-100">
