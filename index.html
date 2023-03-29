@@ -166,45 +166,33 @@
   }
 }
 
+/* Set the z-index of the menu to be higher than the button */
 #kategori-menu {
-  display: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  z-index: 10;
-  width: 200px;
+  z-index: 999;
 }
 
+#kategori-menu {
+  background-color: white;
+}
+
+/* Position the menu below the button */
 #kategori-menu li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-top: 0.5rem;
 }
 
-#kategori-menu a {
+/* Style the submenu items */
+#kategori-menu li a {
   display: block;
-  padding: 8px 10px;
-  text-decoration: none;
-  color: #333;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #374151;
+  white-space: nowrap;
 }
 
-#kategori-menu a:hover {
-  background-color: #eee;
-}
-
-#kategori-button {
-  display: inline-block;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  color: #333;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 8px 10px;
-  margin: 0;
-  text-decoration: none;
-  cursor: pointer;
+#kategori-menu li a:hover {
+  color: #4b5563;
+  background-color: #f4f4f4;
 }
 
 /* Hide mobile menu by default */
