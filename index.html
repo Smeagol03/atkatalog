@@ -264,97 +264,43 @@
   }
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 60px;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.left, .right {
-  flex-basis: 30%;
-}
-
-.center {
-  flex-basis: 40%;
-}
-
-.left, .center, .right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-p {
-  margin: 0;
-}
-
-span {
-  font-size: 12px;
-  opacity: 0.8;
-  margin-top: 5px;
-}
-
-.left p {
-  text-align: left;
-}
-
-.left span {
-  text-align: justify;
-}
-.left {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-.center p {
-  text-align: center;
-}
-
-.right p {
-  text-align: right;
-}
-
-/* Atur lebar maksimum pada elemen container */
-.container {
-  max-width: 100%;
-}
-
-/* Gunakan display flex dan flex-wrap pada elemen container */
-.container {
+.footer {
+  background-color: #333333;
+  color: white;
+  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative; /* menambahkan posisi relatif pada footer */
 }
 
-/* Atur lebar pada setiap elemen child */
-.left, .center, .right {
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
   width: 100%;
-  margin-bottom: 20px; /* Atur jarak antar elemen child */
+  height: 1px;
+  background-color: orange;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); /* Menambahkan drop shadow */
 }
 
-/* Atur lebar pada elemen child di ukuran layar yang lebih besar */
-@media only screen and (min-width: 768px) {
-  .left, .center, .right {
-    width: 33.33%;
-    margin-bottom: 0; /* Hapus jarak antar elemen child */
-  }
+.footer__address,
+.footer__contact {
+  flex-basis: 45%; /* lebar konten masing-masing bagian footer */
 }
 
-/* Atur teks menjadi rata kiri-kanan pada elemen span */
-.left span, .center span, .right span {
-  text-align: justify;
+.footer__address h3,
+.footer__contact h3 {
+  font-size: 1.2rem; /* ukuran teks judul */
+  font-weight: bold; /* tebal huruf judul */
+  margin-bottom: 1rem; /* jarak antara judul dan paragraf */
 }
 
-/* Atur margin dan padding pada elemen p dan span */
-p, span {
-  margin: 0;
-  padding: 0;
+.footer__address p,
+.footer__contact p {
+  font-size: 1rem; /* ukuran teks paragraf */
+  margin-bottom: 0.5rem; /* jarak antara paragraf */
 }
 
   </style>
@@ -454,18 +400,17 @@ p, span {
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="center">
-      <p>Kontak</p>
-      <span>email : atabrani3@gmail.com</span>
-      <span>WA    : 087894721726</span>
-
-    </div>
-    <div class="right">
-      <p>Alamat</p>
-      <span>Rumbuk, Kec. Sakra, Kab. Lombok Timur</span>
-    </div>
+<footer class="footer">
+  <div class="footer__address">
+    <h3>Alamat:</h3>
+    <p>Jalan Soekarno Hatta</p>
+    <p>Kampung Penua, Desa Rumbuk Timur</p>
+    <p>Kecamatan Sakra</p>
+  </div>
+  <div class="footer__contact">
+    <h3>Kontak:</h3>
+    <p>Telp: +6287894721726</p>
+    <p>Email: atabrani3@gmail.com</p>
   </div>
 </footer>
 
