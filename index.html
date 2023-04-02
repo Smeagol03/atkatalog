@@ -196,62 +196,11 @@
   background-color: #f4f4f4;
 }
 
-/* Hide mobile menu by default */
-#mobile-menu {
-  display: none;
-}
-
-/* Show mobile menu on small screens */
-@media (max-width: 767px) {
-  /* Display mobile menu as a block */
-  #mobile-menu {
-    display: block;
-  }
-
-  /* Style the links in the mobile menu */
-  #mobile-menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    color: #333;
-  }
-
-  /* Style the active link in the mobile menu */
-  #mobile-menu a.active {
-    background-color: #333;
-    color: #fff;
-  }
-}
-
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.product {
-  width: 45%;
-  margin-bottom: 30px;
-}
-
-/* CSS untuk tampilan hp */
-@media only screen and (max-width: 768px) {
-  .products {
-    flex-direction: column;
-  }
-  
-  .product {
-    width: 100%;
-  }
+  margin: 2rem 0;
 }
 
 .product {
@@ -269,12 +218,8 @@
 }
 
 .product h3 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* jumlah maksimum baris yang ditampilkan */
-  -webkit-box-orient: vertical;
-  max-height: 3rem; /* tinggi maksimum untuk 2 baris */
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .product p {
@@ -297,11 +242,18 @@
 }
 
 .product {
-  background-color: #ffffff;
-  border-radius: 0.25rem;
+  background-color: #ffffff; /* putih */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* drop shadow */
   padding: 1rem;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
-  margin: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px; /* radius sudut */
+}
+@media only screen and (max-width: 767px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
 }
 
 footer {
@@ -399,7 +351,7 @@ p, span {
 
   </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-white">
   <nav class="bg-white shadow">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between h-16">
@@ -410,7 +362,7 @@ p, span {
         </a>
       </div>
       <div class="hidden md:flex md:items-center md:ml-6">
-        <a href="https://smeagol03.github.io/atkatalog/" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+        <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Home</a>
         <div class="relative">
           <button id="kategori-button" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kategori</button>
           <ul id="kategori-menu" class="hidden absolute z-10">
@@ -421,24 +373,28 @@ p, span {
         </div>
         <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
       </div>
-    </div>
-  </div>
-  <div class="-mr-2 flex md:hidden">
-    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
-      <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-</div>
-</div>
-    <div class="hidden md:hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 sm:px-3">
-        <a href="https://smeagol03.github.io/atkatalog/" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kategori</a>
-        <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+      <div class="-mr-2 flex md:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
+
+   <div class="hidden md:hidden" id="mobile-menu">
+  <div class="px-2 pt-2 pb-3 sm:px-3">
+    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
+    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium" onclick="toggleSubMenu()">Kategori</a>
+    <ul id="sub-menu" class="pl-4 hidden">
+      <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 1</a></li>
+      <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 2</a></li>
+      <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 3</a></li>
+    </ul>
+    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+  </div>
+</div>
   </nav>
 
   <section class="banner">
@@ -506,7 +462,7 @@ p, span {
 </footer>
 
   <script>
-const mainMenuButton = document.getElementById('main-menu-button');
+      const mainMenuButton = document.getElementById('main-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 /* Saat tombol hamburger ditekan, tambahkan class "hidden" pada mobile menu untuk menyembunyikannya */
 function toggleMenu() {
@@ -540,6 +496,16 @@ submenu.addEventListener('click', function() {
 kategoriMenu.classList.add('hidden');
 });
 });
- </script>
+
+// fungsi menu pada tampilan mobile
+function toggleSubMenu() {
+    var subMenu = document.getElementById("sub-menu");
+    if (subMenu.style.display === "none") {
+      subMenu.style.display = "block";
+    } else {
+      subMenu.style.display = "none";
+    }
+  }
+   </script>
 </body>
 </html>
