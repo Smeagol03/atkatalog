@@ -222,12 +222,12 @@
 .product h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  height: 3rem; /* ketinggian elemen h3 setara dengan 2 baris teks */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* menampilkan "..." pada bagian akhir teks yang tidak ditampilkan */
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* jumlah maksimum baris yang ditampilkan */
+  -webkit-line-clamp: 2; /* membatasi jumlah baris teks menjadi 2 */
   -webkit-box-orient: vertical;
-  max-height: 3rem; /* tinggi maksimum untuk 2 baris */
 }
 
 
