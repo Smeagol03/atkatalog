@@ -557,6 +557,45 @@ function searchProducts() {
     }
   }
 }
+
+// Mengambil elemen input dan tombol pencarian pada hp
+const searchInput = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-button');
+
+// Menambahkan event listener pada tombol pencarian
+searchButton.addEventListener('click', function() {
+  search();
+});
+
+// Menambahkan event listener pada input pencarian
+searchInput.addEventListener('keyup', function(event) {
+  if (event.keyCode === 13) {
+    search();
+  }
+});
+
+// Fungsi pencarian
+function search() {
+  // Mengambil nilai input pencarian
+  const searchValue = searchInput.value.toLowerCase().trim();
+
+  // Mengambil semua elemen "product"
+  const products = document.querySelectorAll('.product');
+
+  // Menyembunyikan semua elemen "product" terlebih dahulu
+  for (let i = 0; i < products.length; i++) {
+    products[i].style.display = 'none';
+  }
+
+  // Menampilkan elemen "product" yang sesuai dengan hasil pencarian
+  for (let i = 0; i < products.length; i++) {
+    const productTitle = products[i].querySelector('h3').textContent.toLowerCase();
+
+    if (productTitle.indexOf(searchValue) !== -1) {
+      products[i].style.display = 'block';
+    }
+  }
+}
    </script>
 </body>
 </html>
