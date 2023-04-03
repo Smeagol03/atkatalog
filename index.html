@@ -531,33 +531,7 @@ function toggleSubMenu() {
       subMenu.style.display = "none";
     }
   }
-
-  // Mendapatkan referensi elemen input dan tombol pencarian
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-
-// Menambahkan event listener pada tombol pencarian
-searchButton.addEventListener('click', function(event) {
-  event.preventDefault(); // Mencegah form submit
-  searchProducts(); // Memanggil fungsi searchProducts()
-});
-
-// Fungsi untuk mencari produk dan menampilkan hasil pencarian
-function searchProducts() {
-  const searchValue = searchInput.value.toLowerCase(); // Mendapatkan nilai input pencarian dan mengubahnya menjadi lowercase
-  const products = document.querySelectorAll('.product'); // Mendapatkan semua elemen dengan kelas 'product'
-
-  // Melakukan loop pada setiap elemen 'product' dan menampilkan/menyembunyikan elemen sesuai hasil pencarian
-  for (let i = 0; i < products.length; i++) {
-    const productTitle = products[i].querySelector('h3').textContent.toLowerCase(); // Mendapatkan teks judul produk dan mengubahnya menjadi lowercase
-    if (productTitle.includes(searchValue)) { // Jika judul produk mengandung nilai input pencarian
-      products[i].style.display = 'block'; // Tampilkan elemen produk
-    } else {
-      products[i].style.display = 'none'; // Sembunyikan elemen produk
-    }
-  }
-}
-
+  
 // Mengambil elemen input dan tombol pencarian pada hp
 const searchInput = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');
