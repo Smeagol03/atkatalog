@@ -557,6 +557,23 @@ function searchProducts() {
     }
   }
 }
+
+// Menambahkan event listener pada input pencarian
+searchInput.addEventListener('input', function() {
+  searchProducts(); // Memanggil fungsi searchProducts() setiap kali input pencarian berubah
+});
+
+// Menangani perubahan ukuran layar untuk mengatur tampilan pencarian pada tampilan HP
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 600) { // Jika lebar layar kurang dari 600px
+    searchInput.style.width = '60%'; // Atur lebar input pencarian menjadi 60%
+    searchButton.style.width = '35%'; // Atur lebar tombol pencarian menjadi 35%
+  } else {
+    searchInput.style.width = '30%'; // Atur lebar input pencarian menjadi 30%
+    searchButton.style.width = '15%'; // Atur lebar tombol pencarian menjadi 15%
+  }
+});
+
    </script>
 </body>
 </html>
