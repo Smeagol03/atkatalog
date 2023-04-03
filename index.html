@@ -354,10 +354,10 @@
           </ul>
         </div>
         <a href="#" class="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
-        <div class="search-container">
+        <form>
           <input type="text" id="search-input" placeholder="Cari produk...">
-          <button id="search-button">Cari</button>
-        </div>      
+          <button type="submit" id="search-button">Cari</button>
+        </form>        
       </div>
       <div class="-mr-2 flex md:hidden">
         <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false" id="main-menu-button">
@@ -379,10 +379,10 @@
       <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 3</a></li>
     </ul>
     <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
-    <div class="search-container">
+    <form>
       <input type="text" id="search-input" placeholder="Cari produk...">
-      <button id="search-button">Cari</button>
-    </div>   
+      <button type="submit" id="search-button">Cari</button>
+    </form>    
   </div>
 </div>
   </nav>
@@ -532,32 +532,48 @@ function toggleSubMenu() {
     }
   }
 
-  <!-- Kode JavaScript untuk fungsi pencarian -->
-  const searchInput = document.getElementById('search-input');
-  const searchButton = document.getElementById('search-button');
+  // Mendapatkan referensi elemen input dan tombol pencarian
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
 
-  searchInput.addEventListener('input', function() {
-    searchProducts();
-  });
+// Menambahkan event listener pada tombol pencarian
+searchButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Mencegah form submit
+  searchProducts(); // Memanggil fungsi searchProducts()
+});
 
-  searchButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    searchProducts();
-  });
+// Fungsi untuk mencari produk dan menampilkan hasil pencarian
+function searchProducts() {
+  const searchValue = searchInput.value.toLowerCase(); // Mendapatkan nilai input pencarian dan mengubahnya menjadi lowercase
+  const products = document.querySelectorAll('.product'); // Mendapatkan semua elemen dengan kelas 'product'
 
-  function searchProducts() {
-    const searchValue = searchInput.value.toLowerCase();
-    const products = document.querySelectorAll('.product');
-
-    for (let i = 0; i < products.length; i++) {
-      const productTitle = products[i].querySelector('h3').textContent.toLowerCase();
-      if (productTitle.includes(searchValue)) {
-        products[i].style.display = 'block';
-      } else {
-        products[i].style.display = 'none';
-      }
+  // Melakukan loop pada setiap elemen 'product' dan menampilkan/menyembunyikan elemen sesuai hasil pencarian
+  for (let i = 0; i < products.length; i++) {
+    const productTitle = products[i].querySelector('h3').textContent.toLowerCase(); // Mendapatkan teks judul produk dan mengubahnya menjadi lowercase
+    if (productTitle.includes(searchValue)) { // Jika judul produk mengandung nilai input pencarian
+      products[i].style.display = 'block'; // Tampilkan elemen produk
+    } else {
+      products[i].style.display = 'none'; // Sembunyikan elemen produk
     }
   }
+}
+
+// Menambahkan event listener pada input pencarian
+searchInput.addEventListener('input', function() {
+  searchProducts(); // Memanggil fungsi searchProducts() setiap kali input pencarian berubah
+});
+
+// Menangani perubahan ukuran layar untuk mengatur tampilan pencarian pada tampilan HP
+window.addEventListener('resize', function() {
+  if (window.innerWidth < 600) { // Jika lebar layar kurang dari 600px
+    searchInput.style.width = '60%'; // Atur lebar input pencarian menjadi 60%
+    searchButton.style.width = '35%'; // Atur lebar tombol pencarian menjadi 35%
+  } else {
+    searchInput.style.width = '30%'; // Atur lebar input pencarian menjadi 30%
+    searchButton.style.width = '15%'; // Atur lebar tombol pencarian menjadi 15%
+  }
+});
+
    </script>
 </body>
 </html>
