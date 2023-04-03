@@ -369,12 +369,8 @@
     </div>
   </div>
 
-<div class="hidden md:hidden" id="mobile-menu">
+   <div class="hidden md:hidden" id="mobile-menu">
   <div class="px-2 pt-2 pb-3 sm:px-3">
-    <form>
-      <input type="text" id="search-input" placeholder="Cari produk...">
-      <button type="submit" id="search-button">Cari</button>
-    </form> 
     <a href="https://smeagol03.github.io/atkatalog/" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Home</a>
     <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium" onclick="toggleSubMenu()">Kategori</a>
     <ul id="sub-menu" class="pl-4 hidden">
@@ -382,7 +378,11 @@
       <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 2</a></li>
       <li><a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Sub-Menu 3</a></li>
     </ul>
-    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>   
+    <a href="#" class="block text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+    <form>
+      <input type="text" id="search-input" placeholder="Cari produk...">
+      <button type="submit" id="search-button">Cari</button>
+    </form>    
   </div>
 </div>
   </nav>
@@ -531,42 +531,29 @@ function toggleSubMenu() {
       subMenu.style.display = "none";
     }
   }
-  
-// Mengambil elemen input dan tombol pencarian pada hp
-const searchInput = document.querySelector('.search-input');
-const searchButton = document.querySelector('.search-button');
+
+  // Mendapatkan referensi elemen input dan tombol pencarian
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
 
 // Menambahkan event listener pada tombol pencarian
-searchButton.addEventListener('click', function() {
-  search();
+searchButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Mencegah form submit
+  searchProducts(); // Memanggil fungsi searchProducts()
 });
 
-// Menambahkan event listener pada input pencarian
-searchInput.addEventListener('keyup', function(event) {
-  if (event.keyCode === 13) {
-    search();
-  }
-});
+// Fungsi untuk mencari produk dan menampilkan hasil pencarian
+function searchProducts() {
+  const searchValue = searchInput.value.toLowerCase(); // Mendapatkan nilai input pencarian dan mengubahnya menjadi lowercase
+  const products = document.querySelectorAll('.product'); // Mendapatkan semua elemen dengan kelas 'product'
 
-// Fungsi pencarian
-function search() {
-  // Mengambil nilai input pencarian
-  const searchValue = searchInput.value.toLowerCase().trim();
-
-  // Mengambil semua elemen "product"
-  const products = document.querySelectorAll('.product');
-
-  // Menyembunyikan semua elemen "product" terlebih dahulu
+  // Melakukan loop pada setiap elemen 'product' dan menampilkan/menyembunyikan elemen sesuai hasil pencarian
   for (let i = 0; i < products.length; i++) {
-    products[i].style.display = 'none';
-  }
-
-  // Menampilkan elemen "product" yang sesuai dengan hasil pencarian
-  for (let i = 0; i < products.length; i++) {
-    const productTitle = products[i].querySelector('h3').textContent.toLowerCase();
-
-    if (productTitle.indexOf(searchValue) !== -1) {
-      products[i].style.display = 'block';
+    const productTitle = products[i].querySelector('h3').textContent.toLowerCase(); // Mendapatkan teks judul produk dan mengubahnya menjadi lowercase
+    if (productTitle.includes(searchValue)) { // Jika judul produk mengandung nilai input pencarian
+      products[i].style.display = 'block'; // Tampilkan elemen produk
+    } else {
+      products[i].style.display = 'none'; // Sembunyikan elemen produk
     }
   }
 }
