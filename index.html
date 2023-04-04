@@ -221,6 +221,22 @@
   background-color: #f4f4f4;
 }
 
+h2 {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  border-bottom-color: orange;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); /* Menambahkan drop shadow */
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -390,6 +406,8 @@
   <section class="banner">
     <img src="poto/banner.png" alt="Banner" width="960" height="240">
   </section>  
+
+  <h2>PRODUK</h2>
 
 <section class="products">
   <div class="product">
